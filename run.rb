@@ -14,6 +14,8 @@ Bundler.setup
 require 'sass'
 
 tree = Sass::Engine.new(File.open("input.scss").read, :syntax => :scss).to_tree
+visited = Sass::Tree::Visitors::Perform.visit(tree)
+
 
 def search(node)
   if node.is_a? Sass::Tree::CommentNode
@@ -27,4 +29,4 @@ def show_comment(node)
   puts node.resolved_value
 end
 
-search(tree)
+search(visited)

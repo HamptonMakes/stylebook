@@ -1,13 +1,25 @@
 /* This is
 a body thingy */
-
 .class {
   width: 10px;
 }
 
-/*
-  @name H1
+/**
+Ignore me
 */
-h1 {
-  font-size: 10px;
+
+@each $font in (times courier) {
+  @each $number in (1 2 3) {
+    $tag: "h#{$number}";
+    /*!!
+      @typography
+      @font #{$font}
+      @example
+        <#{$tag}>Title</#{$tag}>
+    */
+    #{$tag} {
+      font-size: (45 / $number) * 1px;
+      font: $font;
+    }
+  }
 }
