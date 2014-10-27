@@ -9,10 +9,9 @@
 #
 # Let the scripting BEGIN!
 
+require 'bundler'
+Bundler.setup
 require 'sass'
-
-puts Sass::VERSION
-
 
 tree = Sass::Engine.new(File.open("input.scss").read, :syntax => :scss).to_tree
 
